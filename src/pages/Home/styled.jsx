@@ -8,6 +8,10 @@ export const PageArea = styled.main`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        .classic-title{
+            color: #FFF;
+        }
     
         .search-area{
             display: flex;

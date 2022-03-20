@@ -23,6 +23,7 @@ export const Home = () => {
     return (
         <PageArea>
             <Container className="home-container">
+                <h1 className='classic-title'>Qual é esse Pokemon?</h1>
                 <img className="main-pokeball" src={require("../../assets/images/PokeBall.png")} alt="" />
                 <form onSubmit={handleSearchPokemon} className="search-area">
                     <input 

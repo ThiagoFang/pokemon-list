@@ -6,6 +6,7 @@ export const PokemonInfoArea = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 50px 0;
         min-height: calc(100vh - 90px);
 
         .pokemon-stats-area{
@@ -61,5 +62,17 @@ export const PokemonInfoArea = styled.section`
                 margin-left: 40px;
             }
         }
+        
+        
+        .evolutions-area {
+            box-sizing: border-box;
+            background-color: #4D4D4D;
+            height: 250px;
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 20px;
+            width: 80%;
+        }
+
     }
 `;

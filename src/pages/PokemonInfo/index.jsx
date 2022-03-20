@@ -14,11 +14,13 @@ export const PokemonInfo = () => {
     const [pokemonSprite, setPokemonSprite] = useState('')
     const [pokemonColor, setPokemonColor] = useState('')
     const [pokemonStats, setPokemonStats] = useState([])
+    
+    const [evolutionChain, setEvolutionChain] = useState('')
 
     useEffect( async ()=>{
         const endpoint = `pokemon/${params.name}`
         const json = await pokeApi.getPokemonData(endpoint)
-        
+
         setPokeInfo(json)
         setPokemonSprite(json.sprites.other)
         setPokemonStats(json.stats)
@@ -27,6 +29,7 @@ export const PokemonInfo = () => {
     useEffect(()=>{
         getPokeSpecie()
     },[pokeInfo])
+    
 
     const getPokeSpecie = async () => {
         const endpoint = pokeInfo.species.url
@@ -55,7 +58,7 @@ export const PokemonInfo = () => {
                     <div className='pokemon-stats'>
                         <h2>Stats</h2>
                         {pokemonStats.map((item, key)=>(
-                            <PokeStat key={key} data={item}/>
+                            <PokeStat key={key} data={item} prop={key}/>
                         ))}
                     </div>
                 </div>

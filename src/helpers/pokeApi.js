@@ -11,6 +11,11 @@ const pokeApi = {
     getData: async (endpoint) => {
         const response = await axios.get(endpoint)
         return response.data
+    },
+
+    getEvolution: async (id) => {
+        const response = await axios.get(`${BASE}evolution-chain/${id}/`)
+        return response.data 
     }
 }
 

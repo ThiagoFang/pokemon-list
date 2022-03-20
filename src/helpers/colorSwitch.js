@@ -39,6 +39,23 @@ export const colorSwitch = (jsonColor) => {
     return color
 }
 
+export const statsSwitch = (statName) => {
+    let name;
+
+    switch(statName) {
+        case 'special-attack':
+            name = 'special attack'
+            break;
+        case 'special-defense':
+            name = 'especial defense'
+            break;
+        default:
+            name = statName
+    }
+
+    return name;
+}
+
         /*
         switch(json.color.name) {
             case 'red':
