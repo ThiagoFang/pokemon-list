@@ -6,6 +6,7 @@ import { PokemonInfoArea } from "./styled";
 import { Container } from '../../components/MainComponents';
 import { colorSwitch } from '../../helpers/colorSwitch';
 import { PokeStat } from '../../components/PokeStat';
+import { PokeEvolution } from '../../components/PokeEvolutions';
 
 export const PokemonInfo = () => {
     const params = useParams()
@@ -37,6 +38,7 @@ export const PokemonInfo = () => {
 
         const colorAuth = colorSwitch(json.color.name)
         setPokemonColor(colorAuth)
+        setEvolutionChain(json.evolution_chain.url)
     }
     
     return(
@@ -62,6 +64,9 @@ export const PokemonInfo = () => {
                         ))}
                     </div>
                 </div>
+                { evolutionChain.length > 0 &&
+                    <PokeEvolution data={evolutionChain}/>
+                }
             </Container>      
         </PokemonInfoArea>
     );
