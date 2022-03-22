@@ -15,16 +15,25 @@ export const PokemonInfo = () => {
     const [pokemonSprite, setPokemonSprite] = useState('')
     const [pokemonColor, setPokemonColor] = useState('')
     const [pokemonStats, setPokemonStats] = useState([])
+
+    const [loading, setLoading] = useState(false)
+    const [statsLoading, setStatsLoading] = useState(false)
     
     const [evolutionChain, setEvolutionChain] = useState('')
 
     useEffect( async ()=>{
+        setLoading(true)
         const endpoint = `pokemon/${name}`
         const json = await pokeApi.getPokemonData(endpoint)
 
         setPokeInfo(json)
         setPokemonSprite(json.sprites.other)
+
+        setStatsLoading(true)
         setPokemonStats(json.stats)
+        setStatsLoading(false)
+        
+        setLoading(false)
     },[name])
 
     useEffect(()=>{
@@ -43,31 +52,45 @@ export const PokemonInfo = () => {
     
     return(
         <PokemonInfoArea>
-            <Container className='pokemon-info-container'>
-                <div className='pokemon-stats-area'>
-                    <div className='pokemon-card'>
-                        {pokeInfo.name &&
-                            <div className='pokemon-data' style={{background: pokemonColor}}>
-                                <div>{pokeInfo.name} - <span>Nº{pokeInfo.id}</span></div>
+            {loading &&
+                <div>loading data</div>
+            }
+
+            {!loading &&
+                <Container className='pokemon-info-container'>
+                    <form className='search-area' action="">
+                        <input className='search-input' type="text" />
+                    </form>
+
+                    <div className='pokemon-stats-area'>
+                        <div className='pokemon-card'>
+                            {pokeInfo.name &&
+                                <div className='pokemon-data' style={{background: pokemonColor}}>
+                                    <div>{pokeInfo.name} - <span>Nº{pokeInfo.id}</span></div>
+                                </div>
+                            }
+                            <div className='pokemon-img-area'>
+                                {pokemonSprite.dream_world &&
+                                    <img src={pokemonSprite.dream_world.front_default} alt="" />
+                                }
+                            </div>
+                        </div>
+
+                        {!statsLoading &&
+                            <div className='pokemon-stats'>
+                                <h2>Stats</h2>
+                                {pokemonStats.map((item, key)=>(
+                                    <PokeStat key={key} data={item} prop={key}/>
+                                ))}
                             </div>
                         }
-                        <div className='pokemon-img-area'>
-                            {pokemonSprite.dream_world &&
-                                <img src={pokemonSprite.dream_world.front_default} alt="" />
-                            }
-                        </div>
+
                     </div>
-                    <div className='pokemon-stats'>
-                        <h2>Stats</h2>
-                        {pokemonStats.map((item, key)=>(
-                            <PokeStat key={key} data={item} prop={key}/>
-                        ))}
-                    </div>
-                </div>
-                { evolutionChain.length > 0 &&
-                    <PokeEvolution data={evolutionChain}/>
-                }
-            </Container>      
+                    { evolutionChain.length > 0 &&
+                        <PokeEvolution data={evolutionChain}/>
+                    }
+                </Container>      
+            }
         </PokemonInfoArea>
     );
 }

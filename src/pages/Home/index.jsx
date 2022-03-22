@@ -23,17 +23,17 @@ export const Home = () => {
     return (
         <PageArea>
             <Container className="home-container">
-                <h1 className='classic-title'>Qual é esse Pokemon?</h1>
+                <h1 className='classic-title'>Who is that pokemon?</h1>
                 <img className="main-pokeball" src={require("../../assets/images/PokeBall.png")} alt="" />
                 <form onSubmit={handleSearchPokemon} className="search-area">
                     <input 
                         className="pokemon-name-input" 
                         type="text" 
-                        placeholder='Digite o nome de um Pokemon'
+                        placeholder='Type a pokemon name'
                         value={pokemonSearch}
                         onChange={e=>setPokemonSearch(e.target.value)}
                     />
-                    <button className='search-button'>Pesquisar</button>
+                    <button className='search-button'>SEARCH</button>
                 </form>
             </Container>
 

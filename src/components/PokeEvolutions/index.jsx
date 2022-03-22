@@ -11,12 +11,15 @@ export const PokeEvolution = (data) => {
     const [evolutionChain, setEvolutionChain] = useState([]);
     const [loadingChain, setLoadingChain] = useState(true);
 
+    const [baseEvolution, setBaseEvolution] = useState(false)
     const [baseEvolutionName, setBaseEvolutionName] = useState('');
     const [baseEvolutionimage, setBaseEvolutionImage] = useState('');
 
+    const [firstEvolution, setFirstEvolution] = useState(false)
     const [firstEvolutionName, setFirstEvolutionName] = useState('');
     const [firstEvolutionImage, setFirstEvolutionImage] = useState('');
 
+    const [secondEvolution, setSecondEvolution] = useState(false)
     const [secondEvolutionName, setSecondeEvolutionName] = useState('');
     const [secondEvolutionImage, setSecondEvolutionImage] = useState('');
 
@@ -45,6 +48,7 @@ export const PokeEvolution = (data) => {
             const getFirstEvolutionData = async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${firstEvolutionName}`)
                 setFirstEvolutionImage(json.sprites.other.dream_world.front_default)
+                setFirstEvolution(true)
             }
             getFirstEvolutionData()
         }
@@ -55,6 +59,7 @@ export const PokeEvolution = (data) => {
             const getbaseEvolutionData =  async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${baseEvolutionName}`)
                 setBaseEvolutionImage(json.sprites.other.dream_world.front_default)
+                setBaseEvolution(true)
             }
             getbaseEvolutionData()
         }
@@ -65,6 +70,7 @@ export const PokeEvolution = (data) => {
             const getSecondEvolutionData = async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${secondEvolutionName}`)
                 setSecondEvolutionImage(json.sprites.other.dream_world.front_default)
+                setSecondEvolution(true)
             }
             getSecondEvolutionData()
         }
@@ -72,45 +78,36 @@ export const PokeEvolution = (data) => {
 
     return(
         <PokeEvolutionArea>
-            <h3>Evolves to</h3>
+            <h3 className='evolution-area-title'>Evolves to</h3>
             <div className='evolution-area'>
                 {!loadingChain &&
                     <>
-                        {evolutionChain.chain.species &&
+                        {baseEvolution &&
                             <div className='evolution-box'>    
                                 <Link to={`/pokemon/${baseEvolutionName}`}>
-                                    <h3>{baseEvolutionName}</h3>
                                     <img src={baseEvolutionimage} alt="" />
+                                    <h3 className="evolution-box-title">{baseEvolutionName}</h3>
                                 </Link>
                             </div>
                         }
 
-                        {evolutionChain.chain.evolves_to.length > 0 && 
+                        {firstEvolution &&
                             <div className='evolution-box'>    
                                 <Link to={`/pokemon/${firstEvolutionName}`}>
-                                    <h3>{firstEvolutionName}</h3>
                                     <img src={firstEvolutionImage} alt="" />
+                                    <h3 className="evolution-box-title">{firstEvolutionName}</h3>
                                 </Link>
                             </div>
                         }
 
-                        {evolutionChain.chain.evolves_to.length > 0 &&
-                            <>
-                            {evolutionChain.chain.evolves_to[0].length > 0 &&
-                                <>
-                                    {evolutionChain.chain.evolves_to[0].evolves_to.length > 0 &&
-                                    <div className='evolution-box'>    
-                                        <Link to={`/pokemon/${firstEvolutionName}`}>
-                                            <h3>{secondEvolutionName}</h3>
-                                            <img src={secondEvolutionImage} alt="" />
-                                        </Link>
-                                    </div>
-                                    }
-                                </>
-                            }
-                            </>
+                        {secondEvolution &&
+                            <div className='evolution-box'>    
+                                <Link to={`/pokemon/${secondEvolutionName}`}>
+                                    <img src={secondEvolutionImage} alt="" />
+                                    <h3 className="evolution-box-title">{secondEvolutionName}</h3>
+                                </Link>
+                            </div>
                         }
-
                         
                     </>
                 }
