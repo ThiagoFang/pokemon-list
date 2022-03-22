@@ -9,7 +9,7 @@ import { PokeStat } from '../../components/PokeStat';
 import { PokeEvolution } from '../../components/PokeEvolutions';
 
 export const PokemonInfo = () => {
-    const params = useParams()
+    const { name } = useParams()
 
     const [pokeInfo, setPokeInfo] = useState([])
     const [pokemonSprite, setPokemonSprite] = useState('')
@@ -19,13 +19,13 @@ export const PokemonInfo = () => {
     const [evolutionChain, setEvolutionChain] = useState('')
 
     useEffect( async ()=>{
-        const endpoint = `pokemon/${params.name}`
+        const endpoint = `pokemon/${name}`
         const json = await pokeApi.getPokemonData(endpoint)
 
         setPokeInfo(json)
         setPokemonSprite(json.sprites.other)
         setPokemonStats(json.stats)
-    },[])
+    },[name])
 
     useEffect(()=>{
         getPokeSpecie()
