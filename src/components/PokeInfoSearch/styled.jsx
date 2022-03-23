@@ -17,7 +17,7 @@ export const PokeInfoSearchArea = styled.div`
         input{
             background: #FFF;
             border: none;
-            width: 80%;
+            width: 75%;
             padding: 10px 0 10px 30px;
             font-size: 15px;
 

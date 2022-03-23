@@ -12,7 +12,8 @@ export const PokeInfoSearch = () => {
         e.preventDefault()
         
         if(pokemonName != '') {
-            navigate(`/pokemon/${pokemonName}`)
+            const endpoint = pokemonName.toLowerCase()
+            navigate(`/pokemon/${endpoint}`)
         }
     }
 

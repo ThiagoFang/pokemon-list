@@ -7,7 +7,16 @@ export const PokemonInfoArea = styled.section`
         align-items: center;
         justify-content: center;
         padding: 50px 0;
-        min-height: calc(100vh - 90px);
+
+        .error-image{
+            width: 40%;
+        }
+
+        .error-link{
+            font-size: 24px;
+            color: #E3350D;
+            font-weight: 600;
+        }
 
         .pokemon-stats-area{
             display: flex;

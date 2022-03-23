@@ -44,7 +44,7 @@ export const PokeEvolution = (data) => {
     }, [name]);
 
     useEffect(()=> {
-        if(firstEvolutionName != '') {
+        if(firstEvolutionName !== '') {
             const getFirstEvolutionData = async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${firstEvolutionName}`)
                 setFirstEvolutionImage(json.sprites.other.dream_world.front_default)
@@ -55,7 +55,7 @@ export const PokeEvolution = (data) => {
     },[firstEvolutionName])
 
     useEffect(()=>{
-        if(baseEvolutionName != '') {
+        if(baseEvolutionName !== '') {
             const getbaseEvolutionData =  async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${baseEvolutionName}`)
                 setBaseEvolutionImage(json.sprites.other.dream_world.front_default)
@@ -66,7 +66,7 @@ export const PokeEvolution = (data) => {
     },[baseEvolutionName])
 
     useEffect(()=>{
-        if(secondEvolutionName != '') {
+        if(secondEvolutionName !== '') {
             const getSecondEvolutionData = async () => {
                 const json = await pokeApi.getPokemonData(`pokemon/${secondEvolutionName}`)
                 setSecondEvolutionImage(json.sprites.other.dream_world.front_default)

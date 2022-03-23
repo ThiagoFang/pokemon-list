@@ -3,38 +3,16 @@ import { useState } from 'react';
 
 import { Container } from "../../components/MainComponents";
 import { PageArea, PokemonArea } from './styled';
+import { PokeSearchHome } from '../../components/PokeSearchHome';
 
 export const Home = () => {
-    const navigate = useNavigate();
-
-    const [pokemonList, setPokemonList] = useState([]);
-    const [pokemonSearch, setPokemonSearch] = useState('');
-
-    const [loading, setLoading] = useState(true);
-    const [searchError, setSeatchError] = useState(false);
-
-    const handleSearchPokemon = e => {
-        e.preventDefault()
-        const pokeName = pokemonSearch.toLowerCase()
-        navigate(`/pokemon/${pokeName}`)
-    }
-
 
     return (
         <PageArea>
             <Container className="home-container">
                 <h1 className='classic-title'>Who is that pokemon?</h1>
                 <img className="main-pokeball" src={require("../../assets/images/PokeBall.png")} alt="" />
-                <form onSubmit={handleSearchPokemon} className="search-area">
-                    <input 
-                        className="pokemon-name-input" 
-                        type="text" 
-                        placeholder='Type a pokemon name'
-                        value={pokemonSearch}
-                        onChange={e=>setPokemonSearch(e.target.value)}
-                    />
-                    <button className='search-button'>SEARCH</button>
-                </form>
+                <PokeSearchHome />
             </Container>
 
             <PokemonArea>

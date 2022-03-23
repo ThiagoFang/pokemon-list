@@ -18,7 +18,7 @@ export const Header = () => {
                         </li>
 
                         <li className="navigation-menu-item">
-                            <Link to="/about">Sobre</Link>
+                            <Link to="/about">About</Link>
                         </li>
                     </ul>
                 </nav>
