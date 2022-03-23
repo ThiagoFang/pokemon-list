@@ -4,14 +4,9 @@ export const PokeStatArea = styled.div`
     transition: .2s;
 
     &:hover{
-        transform: scale(1.05);
 
         h3{
             color: #222;
-        }
-        
-        .stat-bar .stat-bar-progression {
-            background-color: #2592BE;
         }
     }
 

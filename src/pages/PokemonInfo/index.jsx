@@ -7,6 +7,7 @@ import { Container } from '../../components/MainComponents';
 import { colorSwitch } from '../../helpers/colorSwitch';
 import { PokeStat } from '../../components/PokeStat';
 import { PokeEvolution } from '../../components/PokeEvolutions';
+import { PokeInfoSearch } from '../../components/PokeInfoSearch';
 
 export const PokemonInfo = () => {
     const { name } = useParams()
@@ -52,16 +53,15 @@ export const PokemonInfo = () => {
     
     return(
         <PokemonInfoArea>
+            <Container className='pokemon-info-container'>
+                <PokeInfoSearch />
+
             {loading &&
                 <div>loading data</div>
             }
 
             {!loading &&
-                <Container className='pokemon-info-container'>
-                    <form className='search-area' action="">
-                        <input className='search-input' type="text" />
-                    </form>
-
+                <>
                     <div className='pokemon-stats-area'>
                         <div className='pokemon-card'>
                             {pokeInfo.name &&
@@ -89,8 +89,9 @@ export const PokemonInfo = () => {
                     { evolutionChain.length > 0 &&
                         <PokeEvolution data={evolutionChain}/>
                     }
-                </Container>      
+                </>  
             }
+            </Container> 
         </PokemonInfoArea>
     );
 }

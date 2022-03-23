@@ -9,10 +9,6 @@ export const PokemonInfoArea = styled.section`
         padding: 50px 0;
         min-height: calc(100vh - 90px);
 
-        .search-area{
-            margin: 10px 0 30px 0;
-        }
-
         .pokemon-stats-area{
             display: flex;
 

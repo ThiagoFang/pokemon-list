@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import pokeApi from '../../helpers/pokeApi';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { PokeEvolutionArea } from './styled'
 
 
 export const PokeEvolution = (data) => {
-    const [counter, setCounter] = useState(1);
+    const { name } = useParams()
 
     const [evolutionChain, setEvolutionChain] = useState([]);
     const [loadingChain, setLoadingChain] = useState(true);
@@ -41,7 +41,7 @@ export const PokeEvolution = (data) => {
             setLoadingChain(false)
         }
         getEvolutionChain()
-    }, []);
+    }, [name]);
 
     useEffect(()=> {
         if(firstEvolutionName != '') {

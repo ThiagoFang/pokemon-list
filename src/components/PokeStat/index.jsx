@@ -23,7 +23,7 @@ export const PokeStat = ({ data }) => {
         setTimeout(()=>{
             setBarWidth(0)
             setBarWidth(`${calcWidth}%`)
-        }, 50)     
+        }, 150)     
     },[pokeStats])
 
     useEffect(()=>{
