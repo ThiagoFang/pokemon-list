@@ -12,8 +12,20 @@ export const PageArea = styled.main`
         .classic-title{
             color: #FFF;
         }
-    
     }
+
+    @media (max-width: 440px) {
+        height: auto;
+        
+        .home-container{
+
+            .classic-title{
+                font-size: 22px;
+                text-align: center;
+            }
+        }
+    }
+    
 `;
 
 export const PokemonArea = styled.section`

@@ -17,4 +17,13 @@ export const HomePokemonArea = styled.div`
             transform: scale(1.2);
         }
     }
+
+    @media (max-width: 440px) {
+        flex-direction: column;
+        padding: 20px 0;
+
+        .poke-image{
+            height: 150px;
+        }
+    }
 `;

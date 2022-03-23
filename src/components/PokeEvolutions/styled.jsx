@@ -71,4 +71,34 @@ export const PokeEvolutionArea = styled.div`
             }
         }
     }
+
+    @media (max-width: 440px) {
+        padding-bottom: 0;
+
+        .evolution-area-title{
+            margin: 0;
+            text-align: center;
+            &::after{
+                display: none;
+            }
+        }
+
+        .evolution-area{
+            flex-direction: column;
+            padding: 10px;
+
+            .evolution-box-title{
+                font-size: 14px;
+            }
+
+            .evolution-box{
+                margin: 30px 0;
+                width: 100px;
+
+                img{
+                    height: 70px;
+                }
+            }
+        }
+    }
 `;

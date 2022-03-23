@@ -71,17 +71,28 @@ export const PokemonInfoArea = styled.section`
                 margin-left: 40px;
             }
         }
-        
-        
-        .evolutions-area {
-            box-sizing: border-box;
-            background-color: #4D4D4D;
-            height: 250px;
-            padding: 30px;
-            margin-top: 20px;
-            border-radius: 20px;
-            width: 80%;
-        }
+    }
 
+    @media (max-width: 440px) {
+        .pokemon-info-container{
+            padding: 0;
+
+            .pokemon-stats-area{
+                flex-direction: column;
+                align-items: center;
+
+                .pokemon-card{
+                    width: 200px;
+                }
+                .pokemon-stats{
+                    margin-left: 0;
+
+                    h2 {
+                        text-align: center;
+                        margin: 0;
+                    }
+                }
+            }
+        }
     }
 `;
