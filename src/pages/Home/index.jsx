@@ -1,9 +1,7 @@
-import { useNavigate } from 'react-router-dom'
-import { useState } from 'react';
-
 import { Container } from "../../components/MainComponents";
 import { PageArea, PokemonArea } from './styled';
 import { PokeSearchHome } from '../../components/PokeSearchHome';
+import { HomePokemon } from "../../components/HomePokemon";
 
 export const Home = () => {
 
@@ -11,7 +9,7 @@ export const Home = () => {
         <PageArea>
             <Container className="home-container">
                 <h1 className='classic-title'>Who is that pokemon?</h1>
-                <img className="main-pokeball" src={require("../../assets/images/PokeBall.png")} alt="" />
+                <HomePokemon />
                 <PokeSearchHome />
             </Container>
 
@@ -23,3 +21,6 @@ export const Home = () => {
         </PageArea>
     )
 }
+
+
+// <img className="main-pokeball" src={require("../../assets/images/PokeBall.png")} alt="" />

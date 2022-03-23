@@ -3,17 +3,9 @@ import styled from "styled-components";
 export const PokeStatArea = styled.div`
     transition: .2s;
 
-    &:hover{
-
-        h3{
-            color: #222;
-        }
-    }
-
     h3{
         margin: 4px 0px 2px 10px;
         font-size: 16px;
-        color: #444;
     }
 
     .stat-bar{

@@ -8,8 +8,8 @@ export const NotFound= () => {
         <NotFoundArea>
             <Container className="notFound-container">
                 <img src={require("../../assets/images/lost.png")} alt=""/>
-                <span>Ops, Você parece perdido treinador!</span>
-                <Link to="/">VOLTAR AO INICIO</Link>
+                <span>Ops, You look lost a trainer!</span>
+                <Link to="/">BACK TO HOME</Link>
             </Container>
         </NotFoundArea>
     )
