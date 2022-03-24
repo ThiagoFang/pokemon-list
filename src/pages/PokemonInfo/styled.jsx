@@ -73,9 +73,39 @@ export const PokemonInfoArea = styled.section`
         }
     }
 
+    @media (min-width: 441px) and (max-width: 768px) {
+        .pokemon-info-container{
+
+            .pokemon-stats-area .pokemon-card{
+                width: 200px;
+            }
+
+            .pokemon-stats-area{
+                
+                h2 {
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
     @media (max-width: 440px) {
         .pokemon-info-container{
             padding: 0;
+
+            .error-image{
+                width: 80%;
+            }
+
+            .error-title{
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .error-link{
+                font-size: 20px;
+            }
 
             .pokemon-stats-area{
                 flex-direction: column;

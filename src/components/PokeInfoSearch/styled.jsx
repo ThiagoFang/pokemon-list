@@ -27,6 +27,9 @@ export const PokeInfoSearchArea = styled.div`
         }
 
         button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             flex: 1;
             border: none;
             background-color: #2592BE;
@@ -38,6 +41,26 @@ export const PokeInfoSearchArea = styled.div`
             }
         }
         
+    }
+
+    @media (min-width: 441px) and (max-width: 768px) {
+        width: 40%;
+        
+        form {
+            input {
+                padding: 6px 0 6px 0;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            button {
+                height: 30px;
+
+                img {
+
+                }
+            }
+        }
     }
 
     @media (max-width: 440px) {
@@ -53,9 +76,6 @@ export const PokeInfoSearchArea = styled.div`
             }
 
             button{
-                display: flex;
-                align-items: center;
-                justify-content: center;
                 height: 35px;
                 
                 img{

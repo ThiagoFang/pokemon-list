@@ -8,6 +8,7 @@ export const PageArea = styled.main`
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 20px 0;
 
         .classic-title{
             color: #FFF;

@@ -71,7 +71,7 @@ export const PokemonInfo = () => {
             {error &&
                 <>
                     <img className='error-image' src={require('../../assets/images/team_rocket.png')} alt="" />
-                    <h1>Oh no! Looks like team rocket got there first!!</h1>
+                    <h1 className='error-title'>Oh no! Looks like team rocket got there first!!</h1>
                     <Link className='error-link' to="/">Back to Home</Link>
                 </>
             }

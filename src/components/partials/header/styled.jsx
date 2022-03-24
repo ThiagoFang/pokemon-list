@@ -29,7 +29,6 @@ export const HeaderArea = styled.header`
             text-transform: uppercase;
             margin-right: 20px;
             
-            
             a{
                 color: #FFF;
             }
@@ -39,6 +38,10 @@ export const HeaderArea = styled.header`
     @media (max-width: 1260px) {
         .container {
             padding: 0 40px;
+
+            .navigation-menu-area .navigation-menu-list .navigation-menu-item {
+                font-size: 14px;
+            }
         }
     }
 `;

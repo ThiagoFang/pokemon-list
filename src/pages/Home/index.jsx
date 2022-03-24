@@ -8,7 +8,7 @@ export const Home = () => {
     return (
         <PageArea>
             <Container className="home-container">
-                <h1 className='classic-title'>Who is that pokemon?</h1>
+                <h1 className='classic-title'>Who is that pokémon?</h1>
                 <HomePokemon />
                 <PokeSearchHome />
             </Container>

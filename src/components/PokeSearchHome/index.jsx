@@ -15,10 +15,10 @@ export const PokeSearchHome = () => {
     },[])
 
     const searchPlaceHolder = [
-        'Type a pokemon name',
+        'Type a pokémon name',
         'Try type Ditto',
         'Try type Arceus',
-        'Try type Rayquasa',
+        'Try type Rayquaza',
         'Try type Charizard',
         'Try type Golbat '
     ]
