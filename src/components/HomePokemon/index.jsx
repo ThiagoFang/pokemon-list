@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import pokeApi from "../../helpers/pokeApi"
 
@@ -6,9 +5,7 @@ import { HomePokemonArea } from "./styled"
 import { PokeStat } from "../PokeStat"
 
 export const HomePokemon = () => {
-    const navigate = useNavigate()
 
-    const [pokemonData, setPokemonData] = useState([])
     const [pokemonStats, setPokemonStats] = useState([])
     const [pokemonSprite, setPokemonSprite] = useState('')
     const [loading, setLoading] = useState(true)
@@ -18,8 +15,6 @@ export const HomePokemon = () => {
             setLoading(true)
             const number = pokenumber()
             const json = await pokeApi.getPokemonData(`pokemon/${number}`)
-
-            setPokemonData(json)
 
             setPokemonStats(json.stats)
 
@@ -31,7 +26,7 @@ export const HomePokemon = () => {
     }, [])
 
     const pokenumber = () => {
-        const number = Math.floor(Math.random() * 50)
+        const number = Math.floor((Math.random() * 50) + 1)
         return number
     }
 
